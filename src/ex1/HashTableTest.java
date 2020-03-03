@@ -24,17 +24,17 @@ class HashTableTest {
         for (int i = 0; i <10 ; i++) {
             hT.put(String.valueOf(i),"valor"+i);
         }
-//        Assertions.assertEquals(
-//                "\n bucket[0] = [0, valor0]\n" +
-//                " bucket[1] = [1, valor1]\n" +
-//                " bucket[2] = [2, valor2]\n" +
-//                " bucket[3] = [3, valor3]\n" +
-//                " bucket[4] = [4, valor4]\n" +
-//                " bucket[5] = [5, valor5]\n" +
-//                " bucket[6] = [6, valor6]\n" +
-//                " bucket[7] = [7, valor7]\n" +
-//                " bucket[8] = [8, valor8]\n" +
-//                " bucket[9] = [9, valor9]", hT.toString());
+        Assertions.assertEquals(
+                "\n bucket[0] = [0, valor0]\n" +
+                " bucket[1] = [1, valor1]\n" +
+                " bucket[2] = [2, valor2]\n" +
+                " bucket[3] = [3, valor3]\n" +
+                " bucket[4] = [4, valor4]\n" +
+                " bucket[5] = [5, valor5]\n" +
+                " bucket[6] = [6, valor6]\n" +
+                " bucket[7] = [7, valor7]\n" +
+                " bucket[8] = [8, valor8]\n" +
+                " bucket[9] = [9, valor9]", hT.toString());
                 hT.put("11","Valor Sobreescrito");
                 hT.put("22","Valor Sobreescrito");
                 hT.put("33","Valor Sobreescrito");
@@ -62,6 +62,17 @@ class HashTableTest {
 
     @org.junit.jupiter.api.Test
     void get() {
+        HashTable hT = new HashTable();
+        hT.put("0","Valor Sobreescrito");
+
+        hT.put("1","perro");
+        hT.put("11","gato");
+
+        Assertions.assertEquals("Valor Sobreescrito",hT.get("0"));
+
+        Assertions.assertEquals("perro",hT.get("1"));
+
+        Assertions.assertEquals("gato",hT.get("11"));
     }
 
     @org.junit.jupiter.api.Test
