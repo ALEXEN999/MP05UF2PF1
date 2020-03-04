@@ -1,14 +1,15 @@
-package ex1;
+package ex2;
 
+import ex1.HashTable;
 import org.junit.jupiter.api.Assertions;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class HashTableTest {
     /** */
     @org.junit.jupiter.api.Test
     void size() {
-        HashTable hT = new HashTable();
+        ex2.HashTable hT = new ex2.HashTable();
 
         //1.-Primero agregamos 1000 por probar y comprobamos el size que en teoria esta bien, ya que el put esta arreglado
         for (int i = 0; i < 1000 ; i++) {
@@ -30,7 +31,7 @@ class HashTableTest {
 
     @org.junit.jupiter.api.Test
     void realSize() {
-        HashTable hT = new HashTable();
+        ex2.HashTable hT = new ex2.HashTable();
 
         //1.-Primero agregamos 1000 por probar y comprobamos el realSize que en teoria debe ser siempre 16
         // ya que se iran agregando a las listas de estos 16 buckets hasta haber agregado los 1000
@@ -52,7 +53,7 @@ class HashTableTest {
 
     @org.junit.jupiter.api.Test
     void put() {
-        HashTable hT = new HashTable();
+        ex2.HashTable hT = new ex2.HashTable();
 
         //1.-Primero vamos a comprobar si da problemas agregar numeross negativos como key
         //aunque no deberia ya que tambien se pueden poner textos como key.
@@ -116,23 +117,23 @@ class HashTableTest {
 
     @org.junit.jupiter.api.Test
     void get() {
-        HashTable hT = new HashTable();
+        ex2.HashTable hT = new ex2.HashTable();
 
         //1.-Primero agregaremos varios valores
-        hT.put("0","Valor Sobreescrito");
+        hT.put("0","Valor");
 
-        hT.put("1","perro");
-        hT.put("11","gato");
+        hT.put("1","zorro");
+        hT.put("11","gata");
         hT.put("22","camello");
 
         //2.-Comprobamos que estan creadas bien haciendo un get(key)
 
-        Assertions.assertEquals("Valor Sobreescrito",hT.get("0"));
+        Assertions.assertEquals("Valor",hT.get("0"));
 
         //he agregado alguna collision para poder comprobar el primero, el ultimo y el del medio
-        Assertions.assertEquals("perro",hT.get("1"));
+        Assertions.assertEquals("zorro",hT.get("1"));
 
-        Assertions.assertEquals("gato",hT.get("11"));
+        Assertions.assertEquals("gata",hT.get("11"));
 
         Assertions.assertEquals("camello",hT.get("22"));
 
@@ -145,7 +146,7 @@ class HashTableTest {
     @org.junit.jupiter.api.Test
     void drop() {
 
-        HashTable hT = new HashTable();
+        ex2.HashTable hT = new ex2.HashTable();
 
         //1.-Agregamos 10 valores
         for (int i = 0; i < 11 ; i++) {
